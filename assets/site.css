@@ -1059,3 +1059,6 @@ body::before{
 
 /* ── subtítulo de paquetes: dos datos, no una frase corrida ─────────────── */
 .pk-lede .dot-sep{display:inline-block;padding-inline:.7em;color:var(--acc)}
+
+/* ── el doble espacio del texto pedido colapsa en HTML: se preserva ─────── */
+.pack ul li span[data-en],.slab-list li span[data-en]{white-space:pre-wrap}

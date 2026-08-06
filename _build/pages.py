@@ -366,28 +366,28 @@ RATES = f'''
 <section class="sec glow-t"><div class="wrap">
   <div class="sec-head center">{eyebrow("Base Packages", "Paquetes base")}
     <h2 data-en="Base Packages" data-es="Paquetes base">Base Packages</h2>
-    <p class="lede pk-lede" data-en="Road test appointment&lt;span class=&#39;dot-sep&#39;&gt;·&lt;/span&gt;Wait time 2-3 weeks"
-       data-es="Cita para el examen&lt;span class=&#39;dot-sep&#39;&gt;·&lt;/span&gt;Tiempo de espera 2-3 semanas">Road test appointment<span class="dot-sep">·</span>Wait time 2-3 weeks</p></div>
+    <p class="lede" data-en="Every package includes the 5 Hour Class, the road test appointment and the car for the test."
+       data-es="Todo paquete incluye la clase de 5 horas, la cita del examen y el auto para rendirlo.">Every package includes the 5 Hour Class, the road test appointment and the car for the test.</p></div>
   <div class="packs">
     {pack("Package #1", "Paquete #1", "670", "10 lessons of 45 minutes", "10 clases de 45 minutos", [
         ("Given in 5 sessions of 90 minutes each", "En 5 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")], feat=True, ses=5)}
     {pack("Package #2", "Paquete #2", "760", "12 lessons of 45 minutes", "12 clases de 45 minutos", [
         ("Given in 6 sessions of 90 minutes each", "En 6 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")], ses=6)}
     {pack("Package #3", "Paquete #3", "850", "14 lessons of 45 minutes", "14 clases de 45 minutos", [
         ("Given in 7 sessions of 90 minutes each", "En 7 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")], ses=7)}
     {pack("Package #4", "Paquete #4", "940", "16 lessons of 45 minutes", "16 clases de 45 minutos", [
         ("Given in 8 sessions of 90 minutes each", "En 8 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")], ses=8)}
   </div>
 </div></section>
@@ -399,7 +399,7 @@ RATES = f'''
   <ul class="slab-list">
     <li>{CHECK}{L("Given in 10 sessions of 90 minutes each", "En 10 sesiones de 90 minutos cada una")}</li>
     <li>{CHECK}{L("5 Hour Pre-Licensing Class", "Clase de 5 horas previa a la licencia")}</li>
-    <li>{CHECK}{L("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas")}</li>
+    <li>{CHECK}{L("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)")}</li>
     <li>{CHECK}{L("Car for road test", "Auto para el examen")}</li>
   </ul>
   <p class="slab-kicker" data-en="In these 10 sessions of 90 min each you will learn to:" data-es="En estas 10 sesiones de 90 min cada una aprenderás a:">In these 10 sessions of 90 min each you will learn to:</p>
@@ -426,11 +426,11 @@ RATES = f'''
     {pack("Package #5", "Paquete #5", "490", "6 lessons of 45 minutes", "6 clases de 45 minutos", [
         ("Given in 3 sessions of 90 minutes each", "En 3 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")])}
     {pack("Package #6", "Paquete #6", "325", "1 lesson of 90 minutes", "1 clase de 90 minutos", [
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Wait time: 2-3 weeks", "Tiempo de espera: 2-3 semanas"),
+        ("Road test appointment  (Wait time 2-3 weeks)", "Cita para el examen  (tiempo de espera 2-3 semanas)"),
         ("Car for road test", "Auto para el examen")],
         note="* For experienced drivers", note_es="* Para conductores con experiencia")}
     <article class="pack rv">
