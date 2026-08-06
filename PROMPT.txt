@@ -1,0 +1,170 @@
+MAX PRECISION DRIVING SCHOOL — SITIO WEB
+========================================
+Creado: 2026-08-04 por /agente-web-premium
+
+QUÉ ES
+------
+Sitio web premium MULTI-PÁGINA (6 páginas, bilingüe EN/ES) para una escuela de
+manejo en Astoria, Queens, Nueva York. Reemplaza a maxprecisiondriving.com, que
+era una SPA en JavaScript invisible para los buscadores.
+
+v2 (04-ago-2026): se rediseñó por completo. La v1 era "dark theme + acento +
+tarjetas" — correcta pero genérica. La v2 sube a estándar editorial.
+
+LAS 5 PÁGINAS  (v3 — la misma estructura que el sitio original)
+---------------------------------------------------------------
+index.html            Home
+rates.html            Lessons & Rates
+five-hour-class.html  5 Hour Class
+contact.html          Contact
+refund-policy.html    Refund Policy   (enlazada desde el pie)
+
+🚨 v3 (04-ago-2026): Nilton pidió replicar la COMUNICACIÓN Y LAS SECCIONES del
+sitio original, con el diseño premium encima. El texto en inglés es el de
+maxprecisiondriving.com COPIADO LITERAL — no se reescribe ni se "mejora".
+El español es su traducción fiel. Se eliminaron las secciones que había
+escrito el agente (los 4 pasos, el doble control, la página de Angel, el FAQ).
+
+HERO v3: se quitó el video. Ahora es una foto del Corolla real de la escuela,
+extraída del video 3pt-turn, con la placa difuminada y ESPEJADA para que el auto
+caiga en el lado derecho (el texto vive a la izquierda). Ken Burns lento.
+
+WhatsApp flotante abajo a la derecha, en todas las páginas.
+Reseñas en carrusel infinito automático (el JS clona el set y anima a -50%).
+Paquetes con halo de acento, filo superior y elevación al pasar el cursor.
+
+CÓMO SE GENERAN (importante)
+----------------------------
+Las páginas NO se editan a mano: se generan desde un shell compartido.
+  _build/gen.py    -> head + header + footer + cierre (comunes a las 6)
+  _build/pages.py  -> el contenido de cada página
+Para cambiar algo:
+  1. editar _build/pages.py (contenido) o _build/gen.py (estructura común)
+  2. cd _build && python gen.py
+  3. desplegar
+Así header, pie, metadatos y contacto no pueden desincronizarse entre páginas.
+El generador NO se publica (ver .vercelignore).
+
+Estilos y comportamiento compartidos: assets/site.css + assets/site.js
+El bloque CONFIG al inicio de site.js tiene todo el contacto.
+
+EN VIVO:  https://max-precision-driving.vercel.app
+Proyecto Vercel: max-precision-driving (scope fotoshonne-7357s-projects)
+
+EL NEGOCIO
+----------
+Max Precision Driving School Inc. — Astoria, Queens NY
+Dueño e instructor: Angel (confirmado literal por una reseña de Google)
+Dirección: 22-55 31st St, Suite UL6, 2do piso, Astoria NY 11105
+Teléfono / WhatsApp: (917) 734-8361
+Instagram: @maxprecisiondrivingschool
+Horario: lunes a sábado, 8AM-6PM  (⚠️ su IG dice 9AM — sin confirmar)
+Idiomas: inglés y español
+Auto: Toyota Corolla blanco con doble control
+Licencia: NYS DMV School #11886  (verificable en data.ny.gov, dataset 3p6i-cv8y)
+
+LOS ACTIVOS QUE SOSTIENEN EL SITIO
+----------------------------------
+★ 5.0 con 115 reseñas en Google — la calificación MÁS ALTA de Astoria.
+  Competencia verificada: Jackson 4.9(145) · Tiffany 4.7(225) · Ferrari 19th Ave
+  4.7(648) · Zapiti 4.6(136) · Queens Driving 4.6(302) · Ferrari Steinway 4.3(738)
+
+★ El patrón "passed on the first try" aparece en 12+ reseñas independientes.
+  De ahí sale el titular, que es una CITA de los alumnos (no una promesa: la ley
+  de NY prohíbe insinuar aprobación garantizada).
+
+★ El argumento del doble control: en NYC un menor de 18 con permiso junior NO
+  puede practicar legalmente en el auto familiar (necesita doble control, y solo
+  de 5AM a 9PM). Ninguna de las 24 escuelas analizadas usa este argumento.
+
+★ El número de licencia DMV: ninguna competidora publica el suyo.
+
+VIDEOS (procesados, en assets/)
+-------------------------------
+hero.mp4      — alumna manejando, 576x1024, 8.4s, 1.83MB, sin audio.
+                Origen: "video hero max precision.mp4" que dio Nilton.
+                Traía un tinte cian fuerte; corregido con:
+                colorchannelmixer=rr=1.55:gg=0.95:bb=0.62,eq=saturation=0.62:contrast=1.10
+3pt-turn.mp4  — el Corolla haciendo un giro en 3 puntos en Astoria, 576x538, 432KB.
+                Origen: el propio sitio del cliente (venía en 1280x720 con barras
+                negras; el contenido real es crop=770:720:256:0)
+
+LOGO
+----
+Reconstruido en vectorial (Nilton pidió no esperar el original). Su wordmark en
+Poppins Bold + el velocímetro, amarillo #FBE134 muestreado del archivo original
+de 250x47. Generador: scratchpad/gen_logo.py
+3 variantes: logo.svg (fondo oscuro) · logo-dark.svg (fondo claro) · marca.svg (ícono)
+
+DISEÑO v2
+---------
+Negro #0A0A08 + el amarillo real de marca #FBE134.
+Tipografías: Newsreader (display, CON EJE ÓPTICO) + Instrument Sans (texto).
+
+Decisiones que vienen de leer el CSS de producción de ~60 sitios:
+- Ratio display:cuerpo = 7.3:1 (124px / 17px). Los servicios premium reales
+  viven en 4.5-7.5:1, NO en 20:1 como los estudios de diseño.
+- Newsreader trae eje `opsz`: las formas ya se ajustan solas al crecer, así que
+  apretar más el tracking sería doble corrección. Por eso -0.032em y no -0.06em.
+- El amarillo se usa como SUPERFICIE (resaltador del titular + bloque a página
+  completa), nunca como texto pequeño: sobre negro da 15:1 como fondo.
+- Rampa de 6 superficies por luminosidad (#0A0A08 -> #302E20). En oscuro se eleva
+  con luz, no con sombra.
+- Texto en 4 niveles; el primario NUNCA es blanco puro (#F5F3E8).
+- ink-4 = #8A8674 -> 5.42:1. Con #6E6A58 daba 3.65:1 y fallaba AA.
+- Escala de espaciado de 8 pasos (8 -> 220px, rango 27:1). De ahí sale la
+  densidad variable: la sección de pasos aprieta, el bloque amarillo respira.
+- Una sola curva de animación: cubic-bezier(.16,1,.3,1) = easeOutExpo.
+- Radios de 2px (el 38% de los sitios medidos usa <= 4px).
+- Grano fractalNoise como data-URI, opacidad .13.
+
+🚨 REGLA DE ACCESIBILIDAD QUE NO SE PUEDE ROMPER
+El tamaño máximo de una fuente fluida no puede pasar de 2.5x el mínimo, o falla
+WCAG 1.4.4 (el texto deja de crecer con el zoom). El h1 va de 52 a 124px = 2.38x.
+Si algún día se sube el máximo, hay que subir el mínimo en proporción.
+
+⚠️ CUMPLIMIENTO LEGAL — 15 NYCRR §76.21 (publicidad de escuelas de manejo en NY)
+--------------------------------------------------------------------------------
+- PROHIBIDO insinuar que la licencia o la aprobación están garantizadas.
+- Si se publica un precio, la duración y el número de clases deben ir con letra
+  del MISMO TAMAÑO que el precio. Por eso .pack .amt y .pack .amt .det comparten
+  font-size. NO achicar el detalle.
+- El nombre debe ir exacto al de la licencia: "Max Precision Driving School Inc."
+
+CÓMO RETOMARLO
+--------------
+1. Editar el CONTENIDO en _build/pages.py  (o la estructura común en gen.py).
+   El contacto vive en el bloque CONFIG al inicio de assets/site.js.
+   Los estilos, en assets/site.css.
+2. Regenerar:  cd _build && python gen.py
+3. Servir en local:  python -m http.server 8931
+4. Publicar:
+   npx vercel@latest deploy --prod --yes --name max-precision-driving \
+     --token $VERCEL_TOKEN --scope fotoshonne-7357s-projects
+
+PENDIENTES DEL CLIENTE
+----------------------
+1. Foto real de Angel (su lugar lo ocupa hoy el panel de temas de las reseñas)
+2. Decidir sobre los precios: la escalera está invertida — el precio por sesión
+   SUBE cuanto más compras ($80 → $86.88). Y cobra la clase por debajo del
+   mercado ($66.67/h vs $80 típico) mientras cobra el curso de 5h en el techo.
+3. Confirmar el horario (8AM en la web vs 9AM en Instagram)
+4. Correo de contacto (hoy el formulario entrega por WhatsApp)
+5. Conectar el dominio maxprecisiondriving.com → cambiar la constante SITE en
+   _build/gen.py y regenerar. Es UNA línea; antes eran 7 URLs sueltas.
+
+ARCHIVOS
+--------
+index.html + 5 páginas más               generadas, NO editar a mano
+assets/site.css · assets/site.js         el sistema compartido por las 6
+assets/                                  videos, posters, logos, imagen OG
+_build/gen.py + _build/pages.py          el generador (no se publica)
+_mockups/                                los dos caminos de diseño que se probaron
+_v1-respaldo/index-v1.html               la versión anterior, por si acaso
+MANUAL-...docx                           manual de entrega para el cliente
+.vercelignore                            excluye _build, _mockups y _v1 del deploy
+PROMPT.txt                               este archivo
+
+MAPA VIVO
+---------
+https://claude.ai/code/artifact/e8dffea4-e569-4d1d-aa0e-98994f98e321

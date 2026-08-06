@@ -1,0 +1,7 @@
+.vercel
+_mockups/
+_v1-respaldo/
+*.docx
+__pycache__/
+*.pyc
+_build/site-v3-respaldo.css
