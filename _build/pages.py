@@ -366,8 +366,8 @@ RATES = f'''
 <section class="sec glow-t"><div class="wrap">
   <div class="sec-head center">{eyebrow("Base Packages", "Paquetes base")}
     <h2 data-en="Base Packages" data-es="Paquetes base">Base Packages</h2>
-    <p class="lede" data-en="Every package includes the 5 Hour Class, the road test appointment and the car for the test."
-       data-es="Todo paquete incluye la clase de 5 horas, la cita del examen y el auto para rendirlo.">Every package includes the 5 Hour Class, the road test appointment and the car for the test.</p></div>
+    <p class="lede pk-lede" data-en="Road test appointment&lt;span class=&#39;dot-sep&#39;&gt;·&lt;/span&gt;Wait time 2-3 weeks"
+       data-es="Cita para el examen&lt;span class=&#39;dot-sep&#39;&gt;·&lt;/span&gt;Tiempo de espera 2-3 semanas">Road test appointment<span class="dot-sep">·</span>Wait time 2-3 weeks</p></div>
   <div class="packs">
     {pack("Package #1", "Paquete #1", "670", "10 lessons of 45 minutes", "10 clases de 45 minutos", [
         ("Given in 5 sessions of 90 minutes each", "En 5 sesiones de 90 minutos cada una"),

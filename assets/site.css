@@ -1056,3 +1056,6 @@ body::before{
   /* silueta de cámara: el mismo gesto del icono de Zoom, sin usar su marca */
   clip-path:polygon(0 0,68% 0,68% 34%,100% 12%,100% 88%,68% 66%,68% 100%,0 100%);
 }
+
+/* ── subtítulo de paquetes: dos datos, no una frase corrida ─────────────── */
+.pk-lede .dot-sep{display:inline-block;padding-inline:.7em;color:var(--acc)}
