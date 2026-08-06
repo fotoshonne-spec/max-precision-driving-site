@@ -148,6 +148,8 @@ HOME = f'''
       {L("Quality", "Calidad", "h3")}
       <p data-en="We provide our students with a high quality learning experience."
          data-es="Brindamos a nuestros alumnos una experiencia de aprendizaje de alta calidad.">We provide our students with a high quality learning experience.</p>
+      <p data-en="Every lesson is personalized, helping you overcome your fears, correct your mistakes, and build the confidence to drive safely and independently."
+         data-es="Cada clase es personalizada: te ayuda a superar tus miedos, corregir tus errores y ganar la confianza para manejar con seguridad y por tu cuenta.">Every lesson is personalized, helping you overcome your fears, correct your mistakes, and build the confidence to drive safely and independently.</p>
       <span class="tag">{L("Fluent in English and Spanish", "Hablamos inglés y español")}</span>
     </article>
     <article class="feat rv">
@@ -255,11 +257,11 @@ def pack(nm, nm_es, price, dur, dur_es, lines, feat=False, note='', note_es='', 
     items = ''.join(f'<li>{CHECK}{L(a, b)}</li>' for a, b in lines)
     flag = (f'<span class="pack-flag">{STAR}{L("Most Popular", "El más elegido")}</span>' if feat else '')
     nota = f'<p class="pack-note">{L(note, note_es)}</p>' if note else ''
-    return f'''<article class="pack{' is-top' if feat else ''} rv" data-ses="{ses}" data-price="{price}" data-nm="{nm_es}">
+    return f'''<article class="pack{' is-top' if feat else ''} rv" data-ses="{ses}" data-price="{price}" data-nmes="{nm_es}" data-nmen="{nm}" data-dures="{dur_es}" data-duren="{dur}">
       {flag}<span class="pack-nm">{L(nm, nm_es)}</span>
       <p class="pack-amt">${price}<span class="pack-dur">{L(dur, dur_es)}</span></p>{nota}
       <ul>{items}</ul>
-      <a class="btn{'' if feat else ' btn-g'}" href="{WA}" target="_blank" rel="noopener" data-en="Book this" data-es="Reservar">Book this</a>
+      <a class="btn{'' if feat else ' btn-g'}" data-pack-cta href="{WA}" target="_blank" rel="noopener" data-en="Book this" data-es="Reservar">Book this</a>
     </article>'''
 
 
@@ -370,22 +372,22 @@ RATES = f'''
     {pack("Package #1", "Paquete #1", "670", "10 lessons of 45 minutes", "10 clases de 45 minutos", [
         ("Given in 5 sessions of 90 minutes each", "En 5 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")], feat=True, ses=5)}
     {pack("Package #2", "Paquete #2", "760", "12 lessons of 45 minutes", "12 clases de 45 minutos", [
         ("Given in 6 sessions of 90 minutes each", "En 6 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road Test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")], ses=6)}
     {pack("Package #3", "Paquete #3", "850", "14 lessons of 45 minutes", "14 clases de 45 minutos", [
         ("Given in 7 sessions of 90 minutes each", "En 7 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")], ses=7)}
     {pack("Package #4", "Paquete #4", "940", "16 lessons of 45 minutes", "16 clases de 45 minutos", [
         ("Given in 8 sessions of 90 minutes each", "En 8 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")], ses=8)}
   </div>
 </div></section>
@@ -397,7 +399,7 @@ RATES = f'''
   <ul class="slab-list">
     <li>{CHECK}{L("Given in 10 sessions of 90 minutes each", "En 10 sesiones de 90 minutos cada una")}</li>
     <li>{CHECK}{L("5 Hour Pre-Licensing Class", "Clase de 5 horas previa a la licencia")}</li>
-    <li>{CHECK}{L("Road test appointment", "Cita para el examen")}</li>
+    <li>{CHECK}{L("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas")}</li>
     <li>{CHECK}{L("Car for road test", "Auto para el examen")}</li>
   </ul>
   <p class="slab-kicker" data-en="In these 10 sessions of 90 min each you will learn to:" data-es="En estas 10 sesiones de 90 min cada una aprenderás a:">In these 10 sessions of 90 min each you will learn to:</p>
@@ -424,11 +426,11 @@ RATES = f'''
     {pack("Package #5", "Paquete #5", "490", "6 lessons of 45 minutes", "6 clases de 45 minutos", [
         ("Given in 3 sessions of 90 minutes each", "En 3 sesiones de 90 minutos cada una"),
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")])}
     {pack("Package #6", "Paquete #6", "325", "1 lesson of 90 minutes", "1 clase de 90 minutos", [
         ("5 Hour Pre-Licensing Class", "Clase de 5 horas"),
-        ("Road test appointment", "Cita para el examen"),
+        ("Wait time: approximately 2-3 weeks", "Tiempo de espera: aproximadamente 2-3 semanas"),
         ("Car for road test", "Auto para el examen")],
         note="* For experienced drivers", note_es="* Para conductores con experiencia")}
     <article class="pack rv">
@@ -457,6 +459,12 @@ FIVE = f'''
   </div>
 </div></section>
 
+<section class="zoom-band"><div class="wrap">
+  <p class="zoom-msg" data-en="5-Hour Pre-Licensing Class is now on Zoom! Don&apos;t miss out&mdash;register today!"
+     data-es="&iexcl;La clase de 5 horas previa a la licencia ya est&aacute; en Zoom! No te lo pierdas: inscr&iacute;bete hoy.">5-Hour Pre-Licensing Class is now on Zoom! Don&apos;t miss out&mdash;register today!</p>
+  <a class="btn btn-sm" href="{WA}" target="_blank" rel="noopener" data-en="Register &lt;span class=&#39;ar&#39;&gt;&#8594;&lt;/span&gt;" data-es="Inscr&iacute;bete &lt;span class=&#39;ar&#39;&gt;&#8594;&lt;/span&gt;">Register <span class="ar">&#8594;</span></a>
+</div></section>
+
 <section class="sec-tight"><div class="wrap">
   <div class="split">
     <div class="rv">
@@ -471,9 +479,8 @@ FIVE = f'''
         <a class="btn btn-g" href="rates.html" data-en="Lessons &amp; Rates" data-es="Clases y tarifas">Lessons &amp; Rates</a>
       </div>
     </div>
-    <figure class="split-m rv" style="aspect-ratio:1/1">
-      <img src="assets/hero-car.jpg" alt="Max Precision's car on an Astoria street" loading="lazy" decoding="async" width="1800" height="1636">
-      <figcaption class="split-badge">{L("Our car · Astoria", "Nuestro auto · Astoria")}</figcaption>
+    <figure class="split-m rv" style="aspect-ratio:1320/1028">
+      <img src="assets/five-hour-zoom.jpg" alt="Pre-Licensing Course (5-Hour Class) via Zoom — Max Precision Driving School" loading="lazy" decoding="async" width="1320" height="1028">
     </figure>
   </div>
 </div></section>

@@ -104,8 +104,8 @@ FOOTER = f'''</main>
   <div class="ft-top">
     <div class="ft-brand-col">
       <img class="ft-logo" src="assets/logo-lockup.svg" alt="Max Precision Driving School" width="900" height="220" loading="lazy">
-      <p data-en="Want to learn more?&lt;br&gt;Follow our social media accounts!"
-         data-es="¿Quieres saber más?&lt;br&gt;¡Síguenos en nuestras redes!">Want to learn more?<br>Follow our social media accounts!</p>
+      <p data-en="Follow us on social media."
+         data-es="Síguenos en nuestras redes.">Follow us on social media.</p>
       <div class="ft-soc">
         <a class="soc-ig" href="https://www.instagram.com/maxprecisiondrivingschool/" target="_blank" rel="noopener" aria-label="Instagram">{IG}</a>
         <a class="soc-fb" href="https://www.facebook.com/profile.php?id=61585295096633&amp;sk=about" target="_blank" rel="noopener" aria-label="Facebook">{FB}</a>
@@ -129,7 +129,7 @@ FOOTER = f'''</main>
       </ul>
     </div>
   </div>
-  <div class="ft-bot">Copyright © <span data-yr>2026</span> Max Precision Driving School · <span class="ft-by">Nilton Girón</span></div>
+  <div class="ft-bot">Copyright © <span data-yr>2026</span> Max Precision Driving School · by <span class="ft-by">Nilton Girón</span></div>
 </div></footer>
 
 <a class="wa-float" href="{WA}" target="_blank" rel="noopener" aria-label="WhatsApp">

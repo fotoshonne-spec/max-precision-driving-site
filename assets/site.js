@@ -373,7 +373,7 @@ const CONFIG = {
   // los paquetes base, leídos de su propia tarjeta
   const packs = [...document.querySelectorAll('.pack[data-ses]')]
     .map(p => ({ses: +p.dataset.ses, price: +p.dataset.price,
-                nm: p.dataset.nm, nmEn: (p.querySelector('.pack-nm')||{}).textContent || ''}))
+                nm: p.dataset.nmes, nmEn: p.dataset.nmen || ''}))
     .filter(p => p.ses > 0)
     .sort((a, b) => a.ses - b.ses);
 
@@ -447,4 +447,31 @@ const CONFIG = {
   // al cambiar de idioma se reescriben las etiquetas del desglose
   document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setTimeout(paint, 40)));
   paint();
+})();
+
+/* ── el botón de cada paquete lleva su detalle a WhatsApp ─────────────────
+   Mismo trato que el armador de precios: en vez de abrir un chat en blanco,
+   el mensaje llega con el paquete, su duración y su precio ya escritos, y en
+   el idioma que el visitante esté viendo.                                  */
+(function(){
+  const btns = document.querySelectorAll('[data-pack-cta]');
+  if(!btns.length) return;
+  const es = () => document.documentElement.lang.startsWith('es');
+
+  function pintar(){
+    btns.forEach(b => {
+      const p = b.closest('.pack');
+      if(!p) return;
+      const nm  = (es() ? p.dataset.nmes  : p.dataset.nmen)  || '';
+      const dur = (es() ? p.dataset.dures : p.dataset.duren) || '';
+      const precio = p.dataset.price ? '$' + Number(p.dataset.price).toLocaleString('en-US') : '';
+      const head = es() ? 'Hola, quiero reservar este paquete:' : 'Hi, I would like to book this package:';
+      const txt = head + '\n• ' + nm + (dur ? ' — ' + dur : '') + (precio ? '\n' + (es() ? 'Precio: ' : 'Price: ') + precio : '');
+      b.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(txt);
+    });
+  }
+
+  pintar();
+  // al cambiar de idioma el i18n reescribe los wa.me genéricos: se vuelve a pintar
+  document.querySelectorAll('.lang button').forEach(x => x.addEventListener('click', () => setTimeout(pintar, 60)));
 })();

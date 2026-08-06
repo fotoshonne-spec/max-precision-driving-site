@@ -1039,3 +1039,20 @@ body::before{
   .pr-row{padding-inline:16px}
   .pr-amt,.pr-dur{font-size:18px}
 }
+
+/* ── aviso de Zoom en la página del curso de 5 horas ────────────────────── */
+.zoom-band{padding-block:clamp(20px,2.4vw,30px);border-bottom:1px solid var(--line);background:var(--l1)}
+.zoom-band .wrap{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);
+}
+.zoom-msg{
+  position:relative;min-width:0;padding-left:34px;
+  font-family:var(--disp);font-size:clamp(15px,1.5vw,18px);font-weight:600;line-height:1.4;
+  color:var(--ink);max-width:70ch;
+}
+.zoom-msg::before{
+  content:"";position:absolute;left:0;top:.34em;width:20px;height:14px;border-radius:4px;
+  background:var(--acc);
+  /* silueta de cámara: el mismo gesto del icono de Zoom, sin usar su marca */
+  clip-path:polygon(0 0,68% 0,68% 34%,100% 12%,100% 88%,68% 66%,68% 100%,0 100%);
+}
